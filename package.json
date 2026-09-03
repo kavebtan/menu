@@ -1,0 +1,18 @@
+{
+  "name": "kavebtan",
+  "version": "1.0.0",
+  "description": "Minimal bilingual menu viewer",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.8",
+    "pdfjs-dist": "^4.10.38"
+  }
+}

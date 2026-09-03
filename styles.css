@@ -1,10 +1,8 @@
 :root {
   --bg: #efe7df;
-  --panel: #f8f4ef;
-  --panel-border: rgba(35, 23, 16, 0.08);
   --button: #2b1d18;
   --button-hover: #1d120f;
-  --text: #1c120d;
+  --shadow: rgba(28, 18, 13, 0.18);
 }
 
 * {
@@ -14,53 +12,53 @@
 html,
 body {
   margin: 0;
-  min-height: 100%;
+  padding: 0;
+  width: 100%;
+  background: var(--bg);
 }
 
 body {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  background: var(--bg);
-  color: var(--text);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-overflow-scrolling: touch;
 }
 
-.menu-app {
-  width: min(92vw, 860px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.menu-frame {
+.menu-app,
+.menu-stage {
   width: 100%;
-  background: var(--panel);
-  border: 1px solid var(--panel-border);
-  box-shadow: 0 18px 40px rgba(28, 18, 13, 0.08);
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
 }
 
 #menuCanvas {
   display: block;
   width: 100%;
   height: auto;
+  margin: 0;
+  padding: 0;
   background: #fff;
+  vertical-align: top;
 }
 
 .toggle-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
   border: 0;
   background: var(--button);
   color: #fff;
   cursor: pointer;
-  padding: 0.8rem 1.8rem;
-  font-size: 0.92rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border-radius: 999px;
+  box-shadow: 0 10px 20px var(--shadow);
   transition: background 180ms ease, transform 180ms ease;
 }
 
@@ -74,12 +72,10 @@ body {
 }
 
 @media (max-width: 640px) {
-  .menu-app {
-    width: min(96vw, 860px);
-    padding: 0.75rem;
-  }
-
   .toggle-button {
-    width: 100%;
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.72rem;
   }
 }

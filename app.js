@@ -6,12 +6,13 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 const canvas = document.getElementById("menuCanvas");
+const stage = document.getElementById("menuStage");
 const toggleButton = document.getElementById("languageToggle");
 const context = canvas.getContext("2d");
 
 const languagePages = [
-  { pageNumber: 1, button: "ქართული" },
-  { pageNumber: 2, button: "English" },
+  { pageNumber: 1, label: "English menu", button: "ქართული" },
+  { pageNumber: 2, label: "ქართული მენიუ", button: "English" },
 ];
 
 let activeIndex = 0;
@@ -23,13 +24,14 @@ async function renderPage(index) {
   if (rendering) return;
   rendering = true;
 
-  const { pageNumber, button } = languagePages[index];
+  const { pageNumber, label, button } = languagePages[index];
+  canvas.setAttribute("aria-label", label);
   toggleButton.textContent = button;
 
   const page = await pdfDocument.getPage(pageNumber);
   const viewport = page.getViewport({ scale: 1 });
-  const frameWidth = canvas.parentElement.clientWidth;
-  const scale = Math.min(1.6, frameWidth / viewport.width);
+  const frameWidth = stage.clientWidth || window.innerWidth;
+  const scale = frameWidth / viewport.width;
   const scaledViewport = page.getViewport({ scale });
 
   const devicePixelRatio = window.devicePixelRatio || 1;
@@ -39,7 +41,6 @@ async function renderPage(index) {
   canvas.style.height = `${scaledViewport.height}px`;
 
   context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-  context.clearRect(0, 0, canvas.width, canvas.height);
 
   await page.render({
     canvasContext: context,
@@ -54,8 +55,12 @@ toggleButton.addEventListener("click", async () => {
   await renderPage(activeIndex);
 });
 
-window.addEventListener("resize", async () => {
-  await renderPage(activeIndex);
+let resizeTimer = null;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    renderPage(activeIndex);
+  }, 150);
 });
 
 await renderPage(activeIndex);

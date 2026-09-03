@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="menu-app">
-      <div class="menu-frame">
-        <canvas id="menuCanvas" aria-label="Menu preview"></canvas>
-      </div>
+    <button class="toggle-button" type="button" id="languageToggle" aria-label="Switch menu language">
+      ქართული
+    </button>
 
-      <button class="toggle-button" type="button" id="languageToggle" aria-label="Switch menu language">
-        ქართული
-      </button>
+    <main class="menu-app">
+      <div class="menu-stage" id="menuStage">
+        <canvas id="menuCanvas" aria-label="English menu"></canvas>
+      </div>
     </main>
 
     <script type="module" src="./app.js"></script>

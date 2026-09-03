@@ -4,38 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yavebtan Menu</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="page-shell">
-      <section class="hero">
-        <p class="brand-kicker">Meeting place · შეხვედრის ადგილი</p>
-        <h1 class="brand">yavebTan</h1>
-        <p class="summary">
-          One menu, two languages. Tap the button to switch between English and
-          Georgian.
-        </p>
+    <main class="menu-app">
+      <div class="menu-frame">
+        <canvas id="menuCanvas" aria-label="Menu preview"></canvas>
+      </div>
 
-        <div class="controls">
-          <button class="toggle-button" type="button" id="languageToggle">
-            ქართული
-          </button>
-          <span class="page-label" id="pageLabel">English menu</span>
-        </div>
-
-        <div class="menu-stage">
-          <div class="menu-frame">
-            <canvas id="menuCanvas" aria-label="Menu preview"></canvas>
-            <div class="loading-state" id="loadingState">Loading menu…</div>
-          </div>
-        </div>
-      </section>
+      <button class="toggle-button" type="button" id="languageToggle" aria-label="Switch menu language">
+        ქართული
+      </button>
     </main>
 
     <script type="module" src="./app.js"></script>

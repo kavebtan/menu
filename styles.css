@@ -43,6 +43,14 @@ body {
   vertical-align: top;
 }
 
+.menu-error {
+  margin: 0;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--button);
+  font-size: 1rem;
+}
+
 .toggle-button {
   position: fixed;
   top: 1rem;

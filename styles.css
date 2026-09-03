@@ -53,25 +53,26 @@ body {
 
 .toggle-button {
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: 0.75rem;
+  right: 0.75rem;
   z-index: 1000;
   border: 0;
-  background: var(--button);
+  background: rgba(43, 29, 24, 0.45);
   color: #fff;
   cursor: pointer;
-  padding: 0.8rem 1.2rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   border-radius: 999px;
-  box-shadow: 0 10px 20px var(--shadow);
+  box-shadow: 0 4px 10px rgba(28, 18, 13, 0.12);
+  backdrop-filter: blur(4px);
   transition: background 180ms ease, transform 180ms ease;
 }
 
 .toggle-button:hover {
-  background: var(--button-hover);
+  background: rgba(43, 29, 24, 0.7);
   transform: translateY(-1px);
 }
 
@@ -81,9 +82,9 @@ body {
 
 @media (max-width: 640px) {
   .toggle-button {
-    top: 0.75rem;
-    right: 0.75rem;
-    padding: 0.7rem 1rem;
-    font-size: 0.72rem;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.58rem;
   }
 }

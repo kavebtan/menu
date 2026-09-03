@@ -51,40 +51,34 @@ body {
   font-size: 1rem;
 }
 
+.menu-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem 1rem 1.75rem;
+  background: var(--bg);
+}
+
 .toggle-button {
-  position: fixed;
-  top: 0.75rem;
-  right: 0.75rem;
-  z-index: 1000;
   border: 0;
-  background: rgba(43, 29, 24, 0.45);
+  background: var(--button);
   color: #fff;
   cursor: pointer;
-  padding: 0.4rem 0.7rem;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  padding: 0.7rem 1.15rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   border-radius: 999px;
-  box-shadow: 0 4px 10px rgba(28, 18, 13, 0.12);
-  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 16px var(--shadow);
   transition: background 180ms ease, transform 180ms ease;
 }
 
 .toggle-button:hover {
-  background: rgba(43, 29, 24, 0.7);
+  background: var(--button-hover);
   transform: translateY(-1px);
 }
 
 .toggle-button:active {
   transform: translateY(0);
-}
-
-@media (max-width: 640px) {
-  .toggle-button {
-    top: 0.5rem;
-    right: 0.5rem;
-    padding: 0.35rem 0.6rem;
-    font-size: 0.58rem;
-  }
 }

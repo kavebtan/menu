@@ -13,7 +13,7 @@ const languagePages = [
   { pageNumber: 2, label: "ქართული მენიუ", button: "English" },
 ];
 
-let activeIndex = 0;
+let activeIndex = 1;
 let rendering = false;
 let pdfDocument = null;
 
